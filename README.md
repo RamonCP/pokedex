@@ -1,5 +1,5 @@
 # Pokedex
-A Pokedex aplication made with React, Typescript with Styled Components. I made this repository with the purpose to improve my skills in Typescript. It is still in development.
+A Pokedex aplication made with React, Typescript and Styled Components. I made this repository with the purpose to improve my skills in Typescript. It is still in development.
 
 ### Prerequisites
 In the project directory, you can run:
