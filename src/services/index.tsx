@@ -27,5 +27,7 @@ export default async function LoadPokemons() {
         return allPokemons
     }
 
+    console.log(pokemons)
+
     return pokemons
 }
