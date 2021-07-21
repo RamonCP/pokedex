@@ -11,6 +11,7 @@ export type PokemonsList = {
 export type Pokemon = {
     id: number,
     name: string,
+    abilities: Abilities,
     types: Array<{
       slot: number,
       type: {
@@ -18,6 +19,12 @@ export type Pokemon = {
       }
     }>
 }
+
+export type Abilities = Array<{
+  ability: {
+    name: string
+  }
+}>
 
 interface Object {
   [idx: string]: string;

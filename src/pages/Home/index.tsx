@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import LoadPokemons from '../../services'
-import { Pokemon, TypesColors } from '../../types'
+import { Pokemon, TypesColors, Abilities } from '../../types'
 
 import { Row } from '../../components/Row/styled'
-import { Card } from '../../components/Card/styled'
+import { Card, BadgeAbilities } from '../../components/Card/styled'
 import { Title } from './styled'
 
 function App() {
@@ -18,11 +18,29 @@ function App() {
 
   }, [])
 
+  function formatAbilities(abilities: Abilities) {
+    let abilitiesText = ""
+    for (let x = 0; x < abilities.length; x++) {
+
+      let abilityName = abilities[x].ability.name
+      abilityName = abilityName.replace("-", " ")
+      
+      abilitiesText += abilityName
+
+      if (x !== abilities.length - 1) {
+        abilitiesText += " / "
+      } 
+      
+    }
+
+    return abilitiesText
+  }
+
   return (
     <>
       <Title>Pokédex</Title>
       <Row>
-        {pokemons.length > 0 ? pokemons?.map(({ id, name, types }) => (
+        {pokemons.length > 0 ? pokemons?.map(({ id, name, types, abilities}) => (
 
           <Card key={id}>
             <figure>
@@ -38,12 +56,12 @@ function App() {
                 <h5>Type</h5>
                 <div className="list">
                   {types.map((item, key) => (
-                    <span 
+                    <BadgeAbilities
                       key={key} 
-                      color={TypesColors[item.type.name]}
-                      >
-                        {item.type.name}
-                      </span> 
+                      bgColor={`${TypesColors[item.type.name]}`}
+                    >
+                      {item.type.name}
+                    </BadgeAbilities>
                   ))}
                   </div>
               </div>
@@ -51,7 +69,7 @@ function App() {
               <div className="box-info">
                 <h5>Abilities</h5>
                 <div className="list">
-                  <p>Inner force</p>
+                  <p>{formatAbilities(abilities)}</p>
                 </div>
               </div>
 
