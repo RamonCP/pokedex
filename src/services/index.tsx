@@ -17,9 +17,9 @@ export default async function LoadPokemons() {
 
     async function loopInAllPokemons(pokemonsList: PokemonsList) {
         const results = pokemonsList.results
-        let allPokemons: Pokemon[] = []
+        const allPokemons: Pokemon[] = []
 
-        for (let { url } of results) {
+        for (const { url } of results) {
             const pokemon = await fetchPokemonsList(url)
             allPokemons.push(pokemon)
         }

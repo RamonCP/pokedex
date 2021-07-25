@@ -3,9 +3,8 @@ import styled from "styled-components";
 interface Custom {
     key: number;
     bgColor: string;
-};
+}
   
-
 export const Card = styled.div`
 
     figure {

@@ -26,11 +26,11 @@ export type Abilities = Array<{
   }
 }>
 
-interface Object {
+interface TypesColorsProps {
   [idx: string]: string;
 }
 
-export const TypesColors: Object =  {
+export const TypesColors: TypesColorsProps =  {
   "normal"    : "#a4acaf",
   "fighting"  : "#d56723",
   "flying"    : "#3dc7ef",        // /#bebab9
